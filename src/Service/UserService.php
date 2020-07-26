@@ -8,6 +8,7 @@ use App\AutoMapping;
 use App\Entity\User;
 use App\Manager\UserManager;
 use App\Request\CreateUserRequest;
+use App\Response\CreateUserResponse;
 use App\Response\GetUserResponse;
 
 class UserService
@@ -23,7 +24,7 @@ class UserService
 
     public function create($request){
         $result = $this->userManager->create($request);
-        $response = $this->autoMapping->map(User::class, CreateUserRequest::class, $result);
+        $response = $this->autoMapping->map(User::class, CreateUserResponse::class, $result);
         return $response;
     }
 

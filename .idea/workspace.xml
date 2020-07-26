@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d4b902ba-44d7-4a27-be18-fa756ce3f665" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +176,13 @@
       <workItem from="1595457219969" duration="4976000" />
       <workItem from="1595519309229" duration="7797000" />
       <workItem from="1595539333773" duration="621000" />
-      <workItem from="1595540374320" duration="2771000" />
+      <workItem from="1595540374320" duration="5104000" />
+      <workItem from="1595606245108" duration="6009000" />
+      <workItem from="1595631086860" duration="3715000" />
+      <workItem from="1595716813469" duration="2882000" />
+      <workItem from="1595769400691" duration="5682000" />
+      <workItem from="1595783600843" duration="8463000" />
+      <workItem from="1595805358778" duration="438000" />
     </task>
     <servers />
   </component>
@@ -190,6 +202,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595246099863" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1595805398990">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1595805398990" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595427805550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

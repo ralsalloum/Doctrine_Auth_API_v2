@@ -11,12 +11,14 @@ use phpDocumentor\Reflection\Types\Self_;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
 class UserController extends BaseController
@@ -34,52 +36,36 @@ class UserController extends BaseController
     /**
      * @Route("/register", name="api_register", methods={"POST"})
      */
-    public function register(UserPasswordEncoderInterface $encoder, Request $request){
+    public function register(UserPasswordEncoderInterface $encoder, Request $request,
+ ValidatorInterface $validator){
 
-        //$data = json_decode($request->getContent(), true);
-        //$request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$data);
-        //$result = $this->userService->create($request);
-        //return $this->response($data, self::CREATE);
+        //$user_info = json_decode($request->getContent(), true);
+        //$request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$user_info);
 
-        //$em = $this->getDoctrine()->getManager();
-        //$user = new User();
+        //$errors = [];
+        //$errors = $validator->validate($request);
 
-        //$email = $request->request->get('email');
-        $password = $request->request->get('password');
-        //$passwordConfirmation = $request->request->get('password_confirmation');
-
-        $errors = [];
-
-        /*if($password != $passwordConfirmation){
-            $errors[] = "The password and its confirmation are not matched";
-        }*/
-
-        if(strlen($password) < 6){
-            $errors[] = "The password should be at least 6 characters";
+        /*if($errors){
+            //$errorsString = (string) $errors;
+            var_dump($errors);
+            //return $this->respondWithErrors($password, ["Error", "500"]);
         }
-
-        if(!$errors){
-            //$ep = $encoder->encodePassword($this, $password);
-
+        else{*/
             try {
 
                 $data = json_decode($request->getContent(), true);
-                //$request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$data);
-                //$result = $this->userService->create($request);
-                return $this->respond($data);
+                $request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$data);
+                $result = $this->userService->create($request);
 
-                //return $this->json(['user'=>$user]);
+                return $this->response($result, self::CREATE);
             }
             catch (UniqueConstraintViolationException $e){
-                $errors[] = "The eamil provided already exists for an account!";
+                $errors[] = "The email provided already exists for an account!";
             }
             /*catch (\Exception $e){
-                $errors[] = "Can not save the user at this time!";
-            }*/
-
-        }
-
-                return $this->json(['error'=>$errors], 400);
+                        $errors[] = "Can not save the user at this time!";
+                    }*/
+        //}
     }
 
     /**
