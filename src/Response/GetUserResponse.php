@@ -11,34 +11,42 @@ class GetUserResponse
     public $password;
     public $userRole;
 
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setId($id): void {
+    public function setId($id): void
+    {
         $this->id = $id;
     }
 
-    public function getEmail(){
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function setEmail($email): void{
+    public function setEmail($email): void
+    {
         $this->email = $email;
     }
-    public function getPassword(){
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function setPassword($password): void {
+    public function setPassword($password): void
+    {
         $this->password = $password;
     }
 
-    public function getUserRole(){
+    public function getUserRole()
+    {
         return $this->userRole;
     }
 
-    public function setUserRole($userRole): void{
+    public function setUserRole($userRole): void
+    {
         $this->userRole = $userRole;
     }
 }

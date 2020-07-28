@@ -13,42 +13,48 @@ class CreateUserResponse
     /**
      * @return mixed
      */
-    public function getEmail(){
+    public function getEmail()
+    {
         return $this->email;
     }
 
     /**
      * @param mixed $email
      */
-    public function setEmail($email): void {
+    public function setEmail($email): void
+    {
         $this->email = $email;
     }
 
     /**
      * @return mixed
      */
-    public function getPassword(){
+    public function getPassword()
+    {
         return $this->password;
     }
 
     /**
      * @param mixed $password
      */
-    public function setPassword($password): void {
+    public function setPassword($password): void
+    {
         $this->password = $password;
     }
 
     /**
      * @return mixed
      */
-    public function getUserRole(){
+    public function getUserRole()
+    {
         return $this->userRole;
     }
 
     /**
      * @param mixed $userRoles
      */
-    public function setUserRole($userRoles): void {
+    public function setUserRole($userRoles): void
+    {
         $this->userRole = $userRoles;
     }
 }

@@ -6,19 +6,10 @@ use App\AutoMapping;
 use App\Request\CreateUserRequest;
 use App\Service\UserService;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\Self_;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
 class UserController extends BaseController
@@ -36,42 +27,26 @@ class UserController extends BaseController
     /**
      * @Route("/register", name="api_register", methods={"POST"})
      */
-    public function register(UserPasswordEncoderInterface $encoder, Request $request,
- ValidatorInterface $validator){
+    public function register(Request $request)
+    {
+        try {
 
-        //$user_info = json_decode($request->getContent(), true);
-        //$request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$user_info);
+            $data = json_decode($request->getContent(), true);
+            $request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$data);
+            $result = $this->userService->create($request);
 
-        //$errors = [];
-        //$errors = $validator->validate($request);
-
-        /*if($errors){
-            //$errorsString = (string) $errors;
-            var_dump($errors);
-            //return $this->respondWithErrors($password, ["Error", "500"]);
+            return $this->response($result, self::CREATE);
         }
-        else{*/
-            try {
-
-                $data = json_decode($request->getContent(), true);
-                $request = $this->autoMapping->map(\stdClass::class, CreateUserRequest::class,(object)$data);
-                $result = $this->userService->create($request);
-
-                return $this->response($result, self::CREATE);
-            }
-            catch (UniqueConstraintViolationException $e){
-                $errors[] = "The email provided already exists for an account!";
-            }
-            /*catch (\Exception $e){
-                        $errors[] = "Can not save the user at this time!";
-                    }*/
-        //}
+        catch (UniqueConstraintViolationException $e){
+            $errors[] = "The email provided already exists for an account!";
+        }
     }
 
     /**
      * @Route("/login", name="api_login", methods={"POST"})
      */
-    public function login(){
+    public function login()
+    {
         return $this->json(['result' => true]);
     }
 
@@ -79,14 +54,16 @@ class UserController extends BaseController
      * @Route("/profile", name="api_profile")
      * @IsGranted("ROLE_USER")
      */
-    public function profile(){
+    public function profile()
+    {
         return $this->json(['user'=>$this->getUser()], 200, [], ['groups'=>['api']]);
     }
 
     /**
      * @Route("/", name="api_home")
      */
-    public function home(){
+    public function home()
+    {
         return $this->json(['result'=>true]);
     }
 
@@ -94,15 +71,10 @@ class UserController extends BaseController
      * @Route("/getAllUsers", name="api_get_users", methods={"GET"})
      * @return JsonResponse
      */
-    public function getAllUsers(){
+    public function getAllUsers()
+    {
         $result = $this->userService->getAll();
         return $this->response($result, self::FETCH);
-        /*$users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
-        if(!$users){
-            return $this->json(['error'=>'No users found!']);
-        }
-
-        return $this->json(['All USERS'=>$users]);*/
     }
 }

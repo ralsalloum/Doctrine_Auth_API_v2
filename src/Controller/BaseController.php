@@ -33,7 +33,8 @@ class BaseController extends AbstractController
      * @param array $headers
      * @return JsonResponse
      */
-    public function respond($data, $headers=[]){
+    public function respond($data, $headers=[])
+    {
 
         return new JsonResponse($data, self::STATE_OK, $headers);
     }
@@ -43,7 +44,8 @@ class BaseController extends AbstractController
      * @param array $headers
      * @return JsonResponse
      */
-    public function respondWithErrors($errors, $headers = []){
+    public function respondWithErrors($errors, $headers = [])
+    {
 
         $data = [
             'errors' => $errors,
@@ -59,7 +61,8 @@ class BaseController extends AbstractController
      *
      * @return JsonResponse
      */
-    public function respondUnauthorized($message = 'Unauthorized!'){
+    public function respondUnauthorized($message = 'Unauthorized!')
+    {
         return $this->setStatusCode(401)->respondWithErrors($message);
     }
 

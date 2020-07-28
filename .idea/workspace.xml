@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b902ba-44d7-4a27-be18-fa756ce3f665" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BaseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Request/CreateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/CreateUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Response/CreateUserResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Response/CreateUserResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Response/GetUserResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Response/GetUserResponse.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +183,8 @@
       <workItem from="1595716813469" duration="2882000" />
       <workItem from="1595769400691" duration="5682000" />
       <workItem from="1595783600843" duration="8463000" />
-      <workItem from="1595805358778" duration="438000" />
+      <workItem from="1595805358778" duration="1192000" />
+      <workItem from="1595954443082" duration="1805000" />
     </task>
     <servers />
   </component>
